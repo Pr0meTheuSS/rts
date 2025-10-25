@@ -1,7 +1,6 @@
 #include "raylib.h"
 
 int main() {
-    // создаём окно
     InitWindow(800, 450, "Hello Raylib!");
     SetTargetFPS(60);
 
