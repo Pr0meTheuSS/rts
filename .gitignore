@@ -41,6 +41,8 @@
 *.dwo
 
 # build dir
-./build/
+build/
 
-./vscode/
+.vscode/
+
+CMakeUserPresets.json
