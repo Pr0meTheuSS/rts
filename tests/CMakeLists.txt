@@ -10,6 +10,9 @@ foreach(test_src ${TEST_SRCS})
             GTest::gtest
             GTest::gtest_main
             pthread
+            raylib
+            Bullet::Bullet
     )
+    target_include_directories(${test_name} PRIVATE ${CMAKE_SOURCE_DIR}/src)
     add_test(NAME ${test_name} COMMAND ${test_name})
 endforeach()
