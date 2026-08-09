@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cbibi87o1x432"]
+
+[ext_resource type="Script" uid="uid://ceoaw4o8d4dwn" path="res://Scripts/camera_manager.gd" id="1_ikde5"]
+[ext_resource type="Script" uid="uid://cctg3pjeahe4o" path="res://Scripts/camera_handle.gd" id="2_higen"]
+[ext_resource type="Script" uid="uid://ua1o8iaoatsc" path="res://Scripts/camera_chase.gd" id="3_0t0gs"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
+
+[sub_resource type="Sky" id="Sky_5a7ea"]
+sky_material = SubResource("ProceduralSkyMaterial_go701")
+
+[sub_resource type="Environment" id="Environment_8j60k"]
+background_mode = 2
+sky = SubResource("Sky_5a7ea")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[node name="CameraManager" type="Node3D" unique_id=2044462958 node_paths=PackedStringArray("chase_controller", "handle_controller", "chase_camera", "handle_camera")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
+script = ExtResource("1_ikde5")
+chase_controller = NodePath("CameraChase")
+handle_controller = NodePath("CameraHandle")
+chase_camera = NodePath("CameraChase/Camera3D")
+handle_camera = NodePath("CameraHandle/Camera3D")
+
+[node name="CameraHandle" type="Node3D" parent="." unique_id=85812521]
+transform = Transform3D(-4.3711392e-08, 8.881785e-16, 1, 0.17364821, 0.98480785, 7.590405e-09, -0.98480785, 0.1736482, -4.3047315e-08, 0, 0, 0)
+script = ExtResource("2_higen")
+
+[node name="Camera3D" type="Camera3D" parent="CameraHandle" unique_id=370371833]
+transform = Transform3D(-4.3711402e-08, 0.1736482, -0.9848078, 1.5795108e-15, 0.9848078, 0.17364821, 1, 7.590404e-09, -4.3047333e-08, -4.7108364, 0.8306476, -2.059172e-07)
+environment = SubResource("Environment_8j60k")
+
+[node name="CameraChase" type="Node3D" parent="." unique_id=989770392]
+transform = Transform3D(-4.3711392e-08, 8.881785e-16, 1, 0.17364821, 0.98480785, 7.590405e-09, -0.98480785, 0.1736482, -4.3047315e-08, 0, 0, 0)
+script = ExtResource("3_0t0gs")
+metadata/_custom_type_script = "uid://ua1o8iaoatsc"
+
+[node name="Camera3D" type="Camera3D" parent="CameraChase" unique_id=224647479]
+transform = Transform3D(-4.371139e-08, 0.25881904, -0.9659258, 0, 0.9659258, 0.25881904, 1, 1.131334e-08, -4.222196e-08, 0, 0, 0)
+environment = SubResource("Environment_8j60k")
+current = true

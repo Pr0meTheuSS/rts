@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://druf5brpkkl7k"]
+
+[ext_resource type="Script" uid="uid://cno7sd4s242at" path="res://Scripts/StreamingManager.gd" id="1_7jxmi"]
+
+[node name="StreamingManager" type="Node3D" unique_id=1919993652 node_paths=PackedStringArray("player_body")]
+script = ExtResource("1_7jxmi")
+player_body = NodePath("")
+chunks_folder = "res://Models/ImportAssets/OlympicCity/"

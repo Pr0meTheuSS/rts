@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dvd55vnya68mv"]
+
+[ext_resource type="Script" uid="uid://d4k6nsqlwbljh" path="res://Scenes/world.gd" id="1_5ukr8"]
+[ext_resource type="PackedScene" uid="uid://c1v6t7iol65ae" path="res://Scenes/floor.tscn" id="1_a02cp"]
+[ext_resource type="Script" uid="uid://dw2mhpqywkjm7" path="res://Scenes/following_floor.gd" id="2_5a7ea"]
+[ext_resource type="PackedScene" uid="uid://drfyablfr6mvk" path="res://Scenes/Duvet/car.tscn" id="2_go701"]
+[ext_resource type="Material" uid="uid://b4753wm4yyade" path="res://Materials/Medium Gray.tres" id="4_8j60k"]
+[ext_resource type="Script" uid="uid://cctg3pjeahe4o" path="res://Scripts/camera_handle.gd" id="4_fo5ed"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_go701"]
+
+[sub_resource type="Sky" id="Sky_5a7ea"]
+sky_material = SubResource("ProceduralSkyMaterial_go701")
+
+[sub_resource type="Environment" id="Environment_8j60k"]
+background_mode = 2
+sky = SubResource("Sky_5a7ea")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_fo5ed"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ukr8"]
+
+[node name="World" type="Node3D" unique_id=1666672076]
+script = ExtResource("1_5ukr8")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1793748134]
+transform = Transform3D(0.65485954, -0.60893244, -0.44761622, 0, -0.5922803, 0.805732, -0.7557506, -0.5276413, -0.38786042, 0, 23.046843, 0)
+shadow_enabled = true
+
+[node name="Floor" parent="." unique_id=1397249977 node_paths=PackedStringArray("to_follow") instance=ExtResource("1_a02cp")]
+script = ExtResource("2_5a7ea")
+to_follow = NodePath("../Car")
+size = 100.0
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=549662488 node_paths=PackedStringArray("node_to_follow")]
+transform = Transform3D(0.6626624, 0.29503632, 0.6883545, -0.40673664, 0.9135454, 0, -0.6288431, -0.279979, 0.72537434, -13.42297, 9.728743, -10.13163)
+script = ExtResource("4_fo5ed")
+node_to_follow = NodePath("../Car")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=81478954]
+transform = Transform3D(-4.37114e-08, 0, -1.0000001, 0, 1.0000001, 0, 1.0000002, 0, -4.3711392e-08, -9.953, 0, 0)
+environment = SubResource("Environment_8j60k")
+
+[node name="Car" parent="." unique_id=1368707154 instance=ExtResource("2_go701")]
+transform = Transform3D(0.72537434, 0, 0.6883545, 0, 1, 0, -0.6883545, 0, 0.72537434, -13.42297, 12.937254, -10.13163)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1538356920]
+transform = Transform3D(5.433181, 3.5881996, 7.6949177, 0, 9.135583, -4.2599926, -8.490403, 2.2961612, 4.9241333, -13.659237, -2.475971, -11.1456375)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1573502682]
+material_override = ExtResource("4_8j60k")
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1273740827]
+shape = SubResource("BoxShape3D_5ukr8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=238799491]
+transform = Transform3D(5.430809, 0, 8.4919195, 0, 10.08, 0, -8.49192, 0, 5.4308085, -19.969574, -0.7027681, -15.003199)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=100341043]
+material_override = ExtResource("4_8j60k")
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1686794977]
+shape = SubResource("BoxShape3D_5ukr8")

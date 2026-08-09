@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c34fxf6hurj2b"]
+
+[ext_resource type="PackedScene" uid="uid://b3otggvb447xl" path="res://Scenes/wheel.tscn" id="1_b0j1n"]
+[ext_resource type="Script" uid="uid://b7fybmupow164" path="res://Scripts/Duvet/suspension_duvet.gd" id="1_q367g"]
+
+[node name="Suspension" type="Node3D" unique_id=1733196277]
+script = ExtResource("1_q367g")
+wheel_radius = 0.8
+stiffness = 15000.0
+damping_compression = 2000.0
+damping_relaxation = 2200.0
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1454821370]
+enabled = false
+
+[node name="Wheel" parent="." unique_id=469944239 instance=ExtResource("1_b0j1n")]

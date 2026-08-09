@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dq8drxqfi4csp"]
+
+[ext_resource type="PackedScene" uid="uid://caegcroupnu2d" path="res://Models/barrel_trampline_mk1.glb" id="1_v32ic"]
+[ext_resource type="Material" uid="uid://bxewrlaei40w0" path="res://Materials/Dark Gray.tres" id="2_gyell"]
+
+[node name="barrel_trampline_mk1" unique_id=1895628151 instance=ExtResource("1_v32ic")]
+
+[node name="barrel_tramp_mk1" parent="." index="0" unique_id=1148796311]
+material_override = ExtResource("2_gyell")

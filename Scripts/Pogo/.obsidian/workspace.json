@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "367916d7007b9d42",
+    "type": "split",
+    "children": [
+      {
+        "id": "60e5086adff53a63",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8c70c1b58ae0305d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "tuning_guide.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "tuning_guide"
+            }
+          },
+          {
+            "id": "7cdafcbee3b92168",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Наблюдения.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Наблюдения"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "8feec3c9ff219a53",
+    "type": "split",
+    "children": [
+      {
+        "id": "51fb3852dcce6cbb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4e3b1d1882e757a1",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Файловый менеджер"
+            }
+          },
+          {
+            "id": "ee9f32c6b1f6a886",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Поиск"
+            }
+          },
+          {
+            "id": "c01de62877621368",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Закладки"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c4d10a15dc37619f",
+    "type": "split",
+    "children": [
+      {
+        "id": "7172af029a10531b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7c0c1d3fd62ee84b",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "tuning_guide.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Обратные ссылки для tuning_guide"
+            }
+          },
+          {
+            "id": "5f00e0e3be0fa248",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "tuning_guide.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Исходящие ссылки из tuning_guide"
+            }
+          },
+          {
+            "id": "b9c54ebbb4c683f1",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Теги"
+            }
+          },
+          {
+            "id": "20e8c57d1efa87c4",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Все свойства"
+            }
+          },
+          {
+            "id": "905a0f47963e3142",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "tuning_guide.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Структура tuning_guide"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false,
+      "bases:Создать новую базу": false
+    }
+  },
+  "active": "7cdafcbee3b92168",
+  "lastOpenFiles": [
+    "car_pogo.gd33805169069.tmp",
+    "car_pogo.gd33427080564.tmp",
+    "car_pogo.gd33095928602.tmp",
+    "car_pogo.gd32967353315.tmp",
+    "chassis_pogo.gd32913704180.tmp",
+    "car_pogo.gd32858078138.tmp",
+    "car_pogo.gd32722040669.tmp",
+    "chassis_pogo.gd32712417109.tmp",
+    "chassis_pogo.gd~RF25595a0.TMP",
+    "chassis_pogo.gd32274414470.tmp",
+    "chassis_pogo.gd32216190363.tmp",
+    "tuning_guide.md",
+    "Наблюдения.md"
+  ]
+}

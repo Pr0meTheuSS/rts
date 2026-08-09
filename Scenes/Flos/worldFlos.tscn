@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://cnh1otfbgpuk4"]
+
+[ext_resource type="Script" uid="uid://d4k6nsqlwbljh" path="res://Scenes/world.gd" id="1_b8ss1"]
+[ext_resource type="PackedScene" uid="uid://c1v6t7iol65ae" path="res://Scenes/floor.tscn" id="2_jndoa"]
+[ext_resource type="Script" uid="uid://dw2mhpqywkjm7" path="res://Scenes/following_floor.gd" id="3_3l0et"]
+[ext_resource type="PackedScene" uid="uid://cbibi87o1x432" path="res://Scenes/camera_manager.tscn" id="4_jndoa"]
+[ext_resource type="PackedScene" uid="uid://bgl5w8l78b0ln" path="res://Scenes/Flos/CarFlos.tscn" id="6_b8ss1"]
+[ext_resource type="Material" uid="uid://b4753wm4yyade" path="res://Materials/Medium Gray.tres" id="6_n80oo"]
+[ext_resource type="PackedScene" uid="uid://bfwbpdnpyujoo" path="res://Scenes/Props/barrel_trampline_mk_2.tscn" id="7_jndoa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fo5ed"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5ukr8"]
+
+[node name="World" type="Node3D" unique_id=1666672076]
+script = ExtResource("1_b8ss1")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1793748134]
+transform = Transform3D(0.65485954, -0.60893244, -0.44761622, 0, -0.5922803, 0.805732, -0.7557506, -0.5276413, -0.38786042, 0, 23.046843, 0)
+shadow_enabled = true
+
+[node name="Floor" parent="." unique_id=1397249977 node_paths=PackedStringArray("to_follow") instance=ExtResource("2_jndoa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.024109, 0)
+script = ExtResource("3_3l0et")
+to_follow = NodePath("../CarFlos")
+size = 100.0
+
+[node name="CameraManager" parent="." unique_id=2044462958 node_paths=PackedStringArray("node_to_follow") instance=ExtResource("4_jndoa")]
+transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999998, 0, 0, 0)
+node_to_follow = NodePath("../CarFlos")
+idle_timeout = 7.0
+
+[node name="CarFlos" parent="." unique_id=1669408536 instance=ExtResource("6_b8ss1")]
+transform = Transform3D(0.90092564, 2.2299409e-08, -0.4339736, 0, 1, 2.9802322e-08, 0.43397355, -1.2560069e-09, 0.90092576, -19.595959, 37.248962, -14.279853)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1538356920]
+transform = Transform3D(5.433181, 3.5881996, 7.6949177, 0, 9.135583, -4.2599926, -8.490403, 2.2961612, 4.9241333, -13.659237, 27.548138, -11.1456375)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1573502682]
+material_override = ExtResource("6_n80oo")
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1273740827]
+shape = SubResource("BoxShape3D_5ukr8")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=238799491]
+transform = Transform3D(5.430809, 0, 8.4919195, 0, 10.08, 0, -8.49192, 0, 5.4308085, -19.969574, 29.32134, -15.003199)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2" unique_id=100341043]
+material_override = ExtResource("6_n80oo")
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=1686794977]
+shape = SubResource("BoxShape3D_5ukr8")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="." unique_id=639191700]
+transform = Transform3D(5.430809, 0, 8.4919195, 0, 10.08, 0, -8.49192, 0, 5.4308085, -37.07007, 62.318787, -5.279068)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3" unique_id=550191567]
+material_override = ExtResource("6_n80oo")
+mesh = SubResource("BoxMesh_fo5ed")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3" unique_id=1836775309]
+shape = SubResource("BoxShape3D_5ukr8")
+
+[node name="barrel_trampline_mk2" parent="." unique_id=1879453400 instance=ExtResource("7_jndoa")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 41.936157, 30.024109, 4.812423)
+
+[node name="barrel_trampline_mk3" parent="." unique_id=68865630 instance=ExtResource("7_jndoa")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, -1.5, 0, 6.556708e-08, 50.957466, 30.024, 4.8121057)
+
+[node name="barrel_trampline_mk4" parent="." unique_id=938359773 instance=ExtResource("7_jndoa")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 50.957466, 30.024, 9.464928)
+
+[node name="barrel_trampline_mk5" parent="." unique_id=1053869534 instance=ExtResource("7_jndoa")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, 1.5, 0, 6.556708e-08, 41.936, 30.024, 9.464928)

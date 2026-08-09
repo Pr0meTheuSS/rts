@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dwd2om4kpjc7q"]
+
+[ext_resource type="PackedScene" uid="uid://b3otggvb447xl" path="res://Scenes/wheel.tscn" id="1_gxftg"]
+[ext_resource type="Script" uid="uid://bt0bwlm1hqcep" path="res://Scripts/Zoom/BrakeZoom.gd" id="2_2gju0"]
+[ext_resource type="Script" uid="uid://q8gbwr3pmdgm" path="res://Scripts/Zoom/SuspensionZoom.gd" id="3_wbjdo"]
+
+[node name="SuspensionZoom" type="Node3D" unique_id=1254554855]
+script = ExtResource("3_wbjdo")
+
+[node name="Wheel" parent="." unique_id=1715958198 instance=ExtResource("1_gxftg")]
+
+[node name="RayCast" type="RayCast3D" parent="." unique_id=1457817234]
+
+[node name="BrakeZoom" type="Node" parent="." unique_id=1615293923]
+script = ExtResource("2_2gju0")
+metadata/_custom_type_script = "uid://bt0bwlm1hqcep"

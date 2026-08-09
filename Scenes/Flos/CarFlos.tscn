@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://bgl5w8l78b0ln"]
+
+[ext_resource type="Script" uid="uid://drq8r2wimc8og" path="res://Scripts/Flos/car_flos.gd" id="1_bd6ll"]
+[ext_resource type="Material" uid="uid://b6jsn4myjlur5" path="res://Materials/Very Light Gray.tres" id="2_5gobn"]
+[ext_resource type="Script" uid="uid://4nh8j1l3emvr" path="res://Scripts/Flos/chassis_flos.gd" id="3_7dm0r"]
+[ext_resource type="PackedScene" uid="uid://dpytguivg3jnm" path="res://Scenes/Flos/SuspensionFlos.tscn" id="4_sknvn"]
+[ext_resource type="Script" uid="uid://ckweq6vuvu3gv" path="res://Scripts/Flos/transmission_flos.gd" id="5_flmcp"]
+[ext_resource type="Script" uid="uid://bnqgf5rp8u64v" path="res://Scripts/Flos/engine_flos.gd" id="6_sknvn"]
+[ext_resource type="Script" uid="uid://shnxectbbjsk" path="res://Scripts/Flos/ballistic_calculator.gd" id="7_sknvn"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7dm0r"]
+friction = 0.2
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uhpgr"]
+points = PackedVector3Array(0.8948958, 0.55947816, 1.4859676, 0.6841363, 0.68099326, 1.5033503, 0.69657505, 0.54410094, 1.8030953, 0.87982905, 0.37009498, 1.7416201, 0.8652878, 0.24129592, -1.7090516, 0.84005976, 0.5925451, -1.6725903, 0.63332975, 1.1109787, -0.3171662, 0.6531267, 1.0660031, 0.14283848, 0.33567345, 0.7170663, 1.5207331, 0.40452516, 0.52872366, 2.0032082, 0, 1.141502, 0.14877415, 0.652426, 0.35182726, 2.0210147, 0.8649374, 0.20591664, 1.7666342, 0.8253434, 0.061971545, -1.7090516, 0.71829927, 0.26025736, -1.9952296, 0.5600983, 0.5931232, -2.0244834, 0.57428896, 0.7421555, -1.8629518, 0.70060456, 0.7637762, -1.4957958, 0.6363081, 0.9588247, -1.0069613, 0, 1.1811591, -0.30868685, 0, 0.73637456, 1.5381157, 0, 0.5133464, 2.08249, 0.33287036, 0.3335595, 2.1236148, -0.6335049, 1.1109787, -0.3171662, -0.65330195, 1.0660031, 0.14283848, -0.68431145, 0.68099326, 1.5033503, -0.33584875, 0.7170663, 1.5207331, 0.69359684, 0.16614386, 1.9434285, 0.34548438, 0.13966721, 2.1257348, 0.81448126, 0.026592268, 1.7013433, 0, 0, -1.6670787, 0.6398119, 0.09434474, -1.950289, 0.36475587, 0.11434675, -2.083839, 0.4041747, 0.2735535, -2.1423464, 0, 0.5938169, -2.1139405, 0, 0.81719196, -1.9299386, 0, 1.0261147, -1.0039935, -0.63648325, 0.9588247, -1.0069613, -0.40470034, 0.52872366, 2.0032082, -0.3330456, 0.3335595, 2.1236148, 0, 0.3151762, 2.1677074, -0.840235, 0.5925451, -1.6725903, -0.8948958, 0.55947816, 1.4859676, -0.6967503, 0.54410094, 1.8030953, 0.62457, 0.031563867, 1.901032, 0, 0.13504247, 2.1579561, 0.30098486, 0.036535464, 2.039669, 0, 0, 1.7666342, -0.8255186, 0.061971545, -1.7090516, -0.6399871, 0.09434474, -1.950289, -0.3649311, 0.11434675, -2.083839, -0.8146565, 0.026592268, 1.7013433, 0, 0.12174634, -2.1101248, 0, 0.2766752, -2.1631207, -0.40434995, 0.2735535, -2.1423464, -0.5602734, 0.5931232, -2.0244834, -0.5744642, 0.7421555, -1.8629518, -0.7007798, 0.7637762, -1.4957958, -0.6526012, 0.35182726, 2.0210147, -0.3456596, 0.13966721, 2.1257348, -0.7184745, 0.26025736, -1.9952296, -0.865463, 0.24129592, -1.7090516, -0.8800042, 0.37009498, 1.7416201, -0.3011601, 0.036535464, 2.039669, 0, 0.04162268, 2.070619, -0.6247452, 0.031563867, 1.901032, -0.86511266, 0.20591664, 1.7666342, -0.69377196, 0.16614386, 1.9434285)
+
+[sub_resource type="Curve" id="Curve_sknvn"]
+_limits = [0.0, 240.8, 0.0, 8000.0]
+_data = [Vector2(0, 88.88696), 0.0, 0.0, 0, 0, Vector2(3071.743, 189.96796), 0.025989234, 0.025989234, 0, 0, Vector2(6073.9507, 240.8), -0.0009953094, 0.0, 0, 0, Vector2(8000, 178.30476), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CarFlos" type="RigidBody3D" unique_id=1669408536 node_paths=PackedStringArray("chassis", "engine", "transmission")]
+collision_layer = 0
+mass = 1500.0
+physics_material_override = SubResource("PhysicsMaterial_7dm0r")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.4, 0)
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_bd6ll")
+chassis = NodePath("ChassisFlos")
+engine = NodePath("EngineFlos")
+transmission = NodePath("TransmissionFlos")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=625231967]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.584, 0)
+shape = SubResource("ConvexPolygonShape3D_uhpgr")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1028178002]
+visible = false
+material_override = ExtResource("2_5gobn")
+size = Vector3(4, 1.5, 2)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=396746868]
+transform = Transform3D(0.86035085, 0.50970227, 0, -0.50970227, 0.86035085, 0, 0, 0, 1, 1.9422181, 0.61434335, 0)
+operation = 2
+size = Vector3(2.6308594, 1, 2.3359375)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D" unique_id=445856043]
+transform = Transform3D(0.2835301, 0.9589634, 0, -0.9589634, 0.2835301, 0, 0, 0, 1, -1.6708779, 0.86172664, 0)
+operation = 2
+size = Vector3(1, 2.8251953, 2.7861328)
+
+[node name="ChassisFlos" type="Node3D" parent="." unique_id=545184660]
+script = ExtResource("3_7dm0r")
+metadata/_custom_type_script = "uid://4nh8j1l3emvr"
+
+[node name="FRSuspensionFlos" parent="ChassisFlos" unique_id=1771107783 instance=ExtResource("4_sknvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.365, -0.378, 0.78)
+is_steer = true
+
+[node name="RRSuspensionFlos" parent="ChassisFlos" unique_id=976260993 instance=ExtResource("4_sknvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.292, -0.378, 0.78)
+is_drive = true
+
+[node name="FLSuspensionFlos" parent="ChassisFlos" unique_id=942270238 instance=ExtResource("4_sknvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.365, -0.378, -0.78)
+mirror_wheel = true
+is_steer = true
+
+[node name="RLSuspensionFlos" parent="ChassisFlos" unique_id=646785759 instance=ExtResource("4_sknvn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.292, -0.378, -0.78)
+mirror_wheel = true
+is_drive = true
+
+[node name="TransmissionFlos" type="Node" parent="." unique_id=65555737]
+script = ExtResource("5_flmcp")
+redline_speeds = Array[float]([-40.0, 60.0, 100.0, 130.0, 150.0, 165.0, 177.0])
+metadata/_custom_type_script = "uid://ckweq6vuvu3gv"
+
+[node name="EngineFlos" type="Node" parent="." unique_id=415580534]
+script = ExtResource("6_sknvn")
+torque_curve = SubResource("Curve_sknvn")
+metadata/_custom_type_script = "uid://bnqgf5rp8u64v"
+
+[node name="Pivots" type="Node3D" parent="." unique_id=1092107882]
+
+[node name="FrontPivot" type="Node3D" parent="Pivots" unique_id=660088862]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.390316, -0.52556616, 0)
+
+[node name="RearPivot" type="Node3D" parent="Pivots" unique_id=1896955150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.360734, -0.52556616, 0)
+
+[node name="GroundContact" type="RayCast3D" parent="." unique_id=1212273247]
+target_position = Vector3(0, -2.5, 0)
+
+[node name="BallisticCalculator" type="Node3D" parent="." unique_id=773807938]
+script = ExtResource("7_sknvn")
+debug_print = false
+
+[node name="AirPostpone" type="Timer" parent="." unique_id=1404983798]
+one_shot = true
+
+[node name="StraightSteer" type="Timer" parent="." unique_id=1282819586]
+one_shot = true
+
+[node name="BrakeTap" type="Timer" parent="." unique_id=1980307504]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="AirPostpone" to="." method="_on_air_postpone_timeout"]
+[connection signal="timeout" from="StraightSteer" to="." method="_on_straight_steer_timeout"]
+[connection signal="timeout" from="BrakeTap" to="." method="_on_brake_tap_timeout"]

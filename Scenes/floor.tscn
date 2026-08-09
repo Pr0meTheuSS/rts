@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c1v6t7iol65ae"]
+
+[ext_resource type="Material" uid="uid://b4753wm4yyade" path="res://Materials/Medium Gray.tres" id="1_nvnu3"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_agfsv"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wjf51"]
+size = Vector2(200, 200)
+
+[node name="Floor" type="StaticBody3D" unique_id=109877889]
+collision_layer = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2050918187]
+shape = SubResource("WorldBoundaryShape3D_agfsv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=403630321]
+material_override = ExtResource("1_nvnu3")
+mesh = SubResource("PlaneMesh_wjf51")

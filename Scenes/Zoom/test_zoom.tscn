@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dblmtffscdx3s"]
+
+[ext_resource type="PackedScene" uid="uid://itfb5sls0cqc" path="res://Scenes/Zoom/CarZoom.tscn" id="4_car"]
+[ext_resource type="PackedScene" uid="uid://cbibi87o1x432" path="res://Scenes/camera_manager.tscn" id="5_4n6sv"]
+[ext_resource type="Script" uid="uid://jidfnqrs52rp" path="res://Scripts/Zoom/guiZoom.gd" id="5_gui"]
+[ext_resource type="Script" uid="uid://t1cah03o8ep" path="res://Scripts/Monitors/Particle1DMonitor.gd" id="6_monitor"]
+
+[node name="Main" type="Node" unique_id=1330434897]
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1665677591]
+transform = Transform3D(0.841525, 0.27079904, -0.4674434, -0.07321694, 0.91447514, 0.39796284, 0.5352334, -0.30067092, 0.7893808, 0, 110.90221, 0)
+shadow_enabled = true
+
+[node name="CarZoom" parent="." unique_id=1697895522 instance=ExtResource("4_car")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -145.03188, 2.2, 51.559425)
+
+[node name="Control" type="Control" parent="." unique_id=1739822420]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("5_gui")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1739822421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer" unique_id=1739822422]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer/HBoxContainer" unique_id=1739822423]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+
+[node name="MonitorInputs" type="PanelContainer" parent="Control" unique_id=1739822424]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 56.0
+offset_right = 388.0
+offset_bottom = 292.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="MonitorDrive" type="PanelContainer" parent="Control" unique_id=1739822425]
+visible = false
+layout_mode = 0
+offset_left = 5.0
+offset_top = 300.0
+offset_right = 388.0
+offset_bottom = 536.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="MonitorRearForces" type="PanelContainer" parent="Control" unique_id=1739822426]
+visible = false
+layout_mode = 0
+offset_left = 396.0
+offset_top = 56.0
+offset_right = 779.0
+offset_bottom = 292.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="MonitorRearSlip" type="PanelContainer" parent="Control" unique_id=1739822427]
+visible = false
+layout_mode = 0
+offset_left = 396.0
+offset_top = 300.0
+offset_right = 779.0
+offset_bottom = 536.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="MonitorRotationVx" type="PanelContainer" parent="Control" unique_id=67733209]
+visible = false
+layout_mode = 0
+offset_left = 787.0
+offset_top = 56.0
+offset_right = 1170.0
+offset_bottom = 292.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="MonitorRotationVy" type="PanelContainer" parent="Control" unique_id=1492316236]
+visible = false
+layout_mode = 0
+offset_left = 787.0
+offset_top = 300.0
+offset_right = 1170.0
+offset_bottom = 536.0
+mouse_filter = 2
+script = ExtResource("6_monitor")
+metadata/_custom_type_script = "uid://t1cah03o8ep"
+
+[node name="CameraManager" parent="." unique_id=2044462958 node_paths=PackedStringArray("node_to_follow") instance=ExtResource("5_4n6sv")]
+node_to_follow = NodePath("../CarZoom")

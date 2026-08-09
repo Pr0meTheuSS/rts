@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://drfyablfr6mvk"]
+
+[ext_resource type="Script" uid="uid://o41cdn0n2qhf" path="res://Scripts/Duvet/car_duvet.gd" id="1_go66d"]
+[ext_resource type="PackedScene" uid="uid://c34fxf6hurj2b" path="res://Scenes/Duvet/suspension.tscn" id="1_wqo35"]
+[ext_resource type="Script" uid="uid://csfucwl11ub4a" path="res://Scripts/Duvet/chassis_duvet.gd" id="2_1sfmx"]
+[ext_resource type="Material" uid="uid://b6jsn4myjlur5" path="res://Materials/Very Light Gray.tres" id="2_aky6y"]
+[ext_resource type="Script" uid="uid://depboid2dgxvo" path="res://Scripts/Duvet/engine_duvet.gd" id="2_yi23e"]
+[ext_resource type="Script" uid="uid://b20jwjx634ai7" path="res://Scripts/Duvet/transmission_duvet.gd" id="3_u41r7"]
+[ext_resource type="Script" uid="uid://dagbjw8ypxqhh" path="res://Scripts/Duvet/welded_diff_duvet.gd" id="7_aqss3"]
+[ext_resource type="Script" uid="uid://5he358k528r4" path="res://Scripts/Duvet/brakes_duvet.gd" id="7_y3wrf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_24jkt"]
+size = Vector3(4, 1.5, 2)
+
+[node name="Car" type="RigidBody3D" unique_id=681762199]
+mass = 1000.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_go66d")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1387371090]
+size = Vector3(4, 1.5, 2)
+material = ExtResource("2_aky6y")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=96974265]
+transform = Transform3D(0.84596056, 0.53324544, 0, -0.53324544, 0.84596056, 0, 0, 0, 1, 1.424551, 0.76573175, 0)
+operation = 2
+size = Vector3(2.3789063, 1, 2.540039)
+material = ExtResource("2_aky6y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1694007898]
+shape = SubResource("BoxShape3D_24jkt")
+
+[node name="Engine" type="Node" parent="." unique_id=780926293]
+script = ExtResource("2_yi23e")
+
+[node name="Transmission" type="Node" parent="." unique_id=2101922583]
+script = ExtResource("3_u41r7")
+gears = Array[float]([-2.9, 2.66, 1.78, 1.3, 1.0, 0.74, 0.5])
+
+[node name="Chassis" type="Node3D" parent="." unique_id=1535598537]
+script = ExtResource("2_1sfmx")
+
+[node name="SuspensionFL" parent="Chassis" unique_id=1652379338 instance=ExtResource("1_wqo35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.492143, -0.4876324, -1.1358024)
+to_debug = true
+is_steer = true
+
+[node name="Brakes" type="Node" parent="Chassis/SuspensionFL" unique_id=2122167681]
+script = ExtResource("7_y3wrf")
+metadata/_custom_type_script = "uid://5he358k528r4"
+
+[node name="SuspensionFR" parent="Chassis" unique_id=1951475929 instance=ExtResource("1_wqo35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4922096, -0.488, 1.136)
+is_steer = true
+
+[node name="Brakes" type="Node" parent="Chassis/SuspensionFR" unique_id=143510816]
+script = ExtResource("7_y3wrf")
+metadata/_custom_type_script = "uid://5he358k528r4"
+
+[node name="SuspensionRL" parent="Chassis" unique_id=320862635 instance=ExtResource("1_wqo35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2759619, -0.4876324, -1.1358024)
+to_debug = true
+is_drive = true
+
+[node name="Brakes" type="Node" parent="Chassis/SuspensionRL" unique_id=1327804533]
+script = ExtResource("7_y3wrf")
+metadata/_custom_type_script = "uid://5he358k528r4"
+
+[node name="SuspensionRR" parent="Chassis" unique_id=1011888496 instance=ExtResource("1_wqo35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2758954, -0.488, 1.136)
+is_drive = true
+
+[node name="Brakes" type="Node" parent="Chassis/SuspensionRR" unique_id=1218943129]
+script = ExtResource("7_y3wrf")
+metadata/_custom_type_script = "uid://5he358k528r4"
+
+[node name="WeldedDiff" type="Node" parent="." unique_id=838965542]
+script = ExtResource("7_aqss3")
